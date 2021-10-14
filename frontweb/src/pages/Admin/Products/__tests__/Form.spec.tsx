@@ -150,25 +150,5 @@ describe('Product form update tests', () => {
       expect(toastElement).toBeInTheDocument();
     });
     expect(history.location.pathname).toEqual('/admin/products');
-
-    
-    // // await selectEvent.select(categoriesInput, ['Eletronicos', 'Computadores']);
-
-    // userEvent.type(nameInput, 'Computador');
-    // userEvent.type(priceInput, '5000.12');
-    // userEvent.type(
-    //   imgUrlInput,
-    //   'https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/16-big.jpg'
-    // );
-    // userEvent.type(descriptionInput, 'Computador Mto bom');
-
-    // userEvent.click(submitButton);
-
-    // await waitFor(() => {
-    //   const toastElement = screen.getByText('Produto cadastrado com sucesso');
-    //   expect(toastElement).toBeInTheDocument();
-    // });
-
-    // expect(history.location.pathname).toEqual('/admin/products');
   });
 });
