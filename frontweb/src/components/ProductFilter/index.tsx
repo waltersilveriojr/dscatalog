@@ -16,6 +16,7 @@ type Props = {
 }
 
 const ProductFilter = ({onSubmitFilter} : Props) => {
+  
   const [selectCategories, setSelectCategories] = useState<Category[]>([]);
 
   const { register, handleSubmit, setValue, getValues, control } = useForm<ProductFilterData>();
