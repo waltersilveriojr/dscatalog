@@ -20,7 +20,7 @@ const Catalog = () => {
       method: 'GET',
       url: '/products',
       params: {
-        page: {pageNumber},
+        page: pageNumber,
         size: 12,
       },
     };
