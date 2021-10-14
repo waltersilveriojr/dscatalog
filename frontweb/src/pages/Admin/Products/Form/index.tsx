@@ -81,7 +81,7 @@ const Form = () => {
       <div className="base-card product-crud-form-card">
         <h1 className="product-crud-form-title">DADOS DO PRODUTO</h1>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} data-testid="form">
           <div className="row product-crud-inputs-container">
             <div className="col-lg-6 product-crud-inputs-left-container">
               <div className="margin-botton-30">
@@ -95,12 +95,14 @@ const Form = () => {
                   } `}
                   placeholder="Nome do Produto"
                   name="name"
+                  data-testid="name"
                 />
                 <div className="invalid-feedback d-block">
                   {errors.name?.message}
                 </div>
               </div>
               <div className="margin-botton-30">
+                <label htmlFor="categories" className="d-none">Categorias</label>
                 <Controller
                   name="categories"
                   rules={{ required: true }}
@@ -115,13 +117,12 @@ const Form = () => {
                       getOptionValue={(category: Category) =>
                         String(category.id)
                       }
+                      inputId="categories"
                     />
                   )}
                 />
                 {errors.categories && (
-                  <div className="invalid-feedback d-block">
-                    campo obrigatorio
-                  </div>
+                  <div className="invalid-feedback d-block">Campo Obrigatório!</div>
                 )}
               </div>
 
@@ -139,7 +140,8 @@ const Form = () => {
                       disableGroupSeparators={true}
                       value={field.value}
                       onValueChange={field.onChange}
-                      prefix="R$  "
+                      // prefix="R$  "
+                      data-testid="price"
                     />
                   )}
                 />
@@ -147,24 +149,6 @@ const Form = () => {
                   {errors.price?.message}
                 </div>
               </div>
-{/* 
-
-              <div className="margin-botton-30">
-                <input
-                  {...register('price', {
-                    required: 'Campo Obrigatório!',
-                  })}
-                  type="text"
-                  className={`form-control base-input ${
-                    errors.price ? 'is-invalid' : ''
-                  } `}
-                  placeholder="Preço"
-                  name="price"
-                />
-                <div className="invalid-feedback d-block">
-                  {errors.price?.message}
-                </div>
-              </div> */}
               <input
                 {...register('imgUrl', {
                   required: 'Campo Obrigatório!',
@@ -179,6 +163,7 @@ const Form = () => {
                 } `}
                 placeholder="Url da imagem do produto"
                 name="imgUrl"
+                data-testid="imgUrl"
               />
               <div className="invalid-feedback d-block">
                 {errors.imgUrl?.message}
@@ -198,6 +183,7 @@ const Form = () => {
                   } `}
                   placeholder="Descrição"
                   name="description"
+                  data-testid="description"
                 />
                 <div className="invalid-feedback d-block">
                   {errors.description?.message}
